@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ইসলামের আলো</title>
+
+  <meta name="description" content="ইসলামের আলো — কুরআন, হাদিস, দোয়া, নামাজের সময়, তাসবিহ ও ইসলামিক জ্ঞান।">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Noto Sans Bengali", "Segoe UI", sans-serif;
+    }
+
+    :root {
+      --green: #075e45;
+      --dark-green: #043c2e;
+      --light-green: #e9f7f1;
+      --gold: #d4a84f;
+      --white: #ffffff;
+      --text: #17352d;
+      --muted: #6d7d77;
+      --bg: #f5f8f6;
+      --card: #ffffff;
+      --shadow: 0 8px 25px rgba(0,0,0,.08);
+    }
+
+    body.dark {
+      --bg: #101a17;
+      --card: #172520;
+      --text: #edf8f3;
+      --muted: #aabbb4;
+      --light-green: #17352b;
+      --white: #ffffff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: .3s;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, var(--dark-green), var(--green));
+      color: white;
+      padding: 15px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,.2);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+    }
+
+    .logo h1 {
+      font-size: 22px;
+    }
+
+    .logo small {
+      display: block;
+      opacity: .8;
+      font-size: 11px;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,.15);
+    }
+
+    .theme-btn {
+      border: 1px solid rgba(255,255,255,.4);
+      background: transparent;
+      color: white;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* HERO */
+    .hero {
+      background:
+        linear-gradient(rgba(3,54,42,.88), rgba(3,54,42,.9)),
+        radial-gradient(circle at center, #188764, #043c2e);
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "☪";
+      position: absolute;
+      font-size: 260px;
+      opacity: .04;
+      right: -30px;
+      top: -60px;
+    }
+
+    .hero h2 {
+      font-size: clamp(32px, 7vw, 58px);
+      color: #f5d486;
+      margin-bottom: 10px;
+    }
+
+    .hero .arabic {
+      font-size: 28px;
+      margin-bottom: 18px;
+      direction: rtl;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      opacity: .9;
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 11px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #2d2412;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      color: var(--green);
+      font-size: 28px;
+    }
+
+    body.dark .section-title h2 {
+      color: #6dd6b0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* FEATURE CARDS */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 25px 18px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-icon {
+      width: 58px;
+      height: 58px;
+      margin: auto auto 12px;
+      border-radius: 16px;
+      background: var(--light-green);
+      display: grid;
+      place-items: center;
+      font-size: 29px;
+    }
+
+    .card h3 {
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* AYAH */
+    .ayah-box {
+      background: linear-gradient(135deg, #075e45, #0b7959);
+      color: white;
+      padding: 35px 25px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .ayah-arabic {
+      font-family: serif;
+      direction: rtl;
+      font-size: 29px;
+      line-height: 2;
+      margin-bottom: 18px;
+    }
+
+    .ayah-meaning {
+      font-size: 15px;
+      opacity: .9;
+    }
+
+    .ayah-source {
+      margin-top: 15px;
+      color: #f1d27e;
+      font-size: 13px;
+    }
+
+    /* PRAYER */
+    .prayer-section {
+      background: var(--light-green);
+    }
+
+    .prayer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .prayer {
+      background: var(--card);
+      border-radius: 15px;
+      padding: 18px 8px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,.05);
+    }
+
+    .prayer span {
+      display: block;
+      font-size: 25px;
+    }
+
+    .prayer strong {
+      display: block;
+      margin: 5px 0;
+    }
+
+    .prayer time {
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    /* DUAS */
+    .duas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 18px;
+    }
+
+    .dua {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .dua h3 {
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .dua-arabic {
+      direction: rtl;
+      text-align: right;
+      font-family: serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .dua-meaning {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* TASBIH */
+    .tasbih-box {
+      max-width: 430px;
+      margin: auto;
+      background: var(--card);
+      border-radius: 25px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    #counter {
+      font-size: 65px;
+      font-weight: bold;
+      color: var(--green);
+      margin: 15px 0;
+    }
+
+    .tasbih-btn {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 8px solid var(--light-green);
+      background: var(--green);
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,.18);
+    }
+
+    .reset-btn {
+      display: block;
+      margin: 18px auto 0;
+      background: transparent;
+      border: 1px solid #bbb;
+      padding: 8px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    /* SEARCH */
+    .search-box {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      display: flex;
+      background: var(--card);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 14px 20px;
+      background: transparent;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .search-box button {
+      border: none;
+      background: var(--green);
+      color: white;
+      padding: 0 22px;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #032d23;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer h2 {
+      color: #f1d27e;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      opacity: .75;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      margin: 18px 0;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media(max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .nav {
+        justify-content: space-between;
+      }
+
+      .hero {
+        padding: 55px 18px;
+      }
+
+      .hero .arabic {
+        font-size: 23px;
+      }
+
+      .prayer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .prayer:last-child {
+        grid-column: span 2;
+      }
+
+      .container {
+        padding: 35px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+
+      <div class="logo">
+        <div class="logo-icon">☪</div>
+        <div>
+          <h1>ইসলামের আলো</h1>
+          <small>জ্ঞান • আমল • শান্তি</small>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#home">হোম</a>
+        <a href="#quran">কুরআন</a>
+        <a href="#prayer">নামাজ</a>
+        <a href="#dua">দোয়া</a>
+        <a href="#tasbih">তাসবিহ</a>
+      </nav>
+
+      <button class="theme-btn" onclick="toggleDark()">🌙</button>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+
+    <h2>ইসলামের আলো</h2>
+
+    <p>
+      কুরআন ও সুন্নাহর আলোকে জীবনকে সুন্দর করার একটি ছোট্ট প্রয়াস।
+      প্রতিদিন ইসলাম সম্পর্কে জানুন, শিখুন এবং আমল করুন।
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#quran" class="btn btn-gold">📖 কুরআন পড়ুন</a>
+      <a href="#dua" class="btn btn-outline">🤲 দোয়া দেখুন</a>
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="container">
+
+    <div class="section-title">
+      <h2>ইসলামের প্রয়োজনীয় বিষয়</h2>
+      <p>এক জায়গায় প্রয়োজনীয় ইসলামিক তথ্য</p>
+    </div>
+
+    <div class="features">
+
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h3>আল-কুরআন</h3>
+        <p>কুরআনের আয়াত ও অর্থ পড়ুন</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📜</div>
+        <h3>হাদিস</h3>
+        <p>রাসূল ﷺ এর হাদিস জানুন</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🤲</div>
+        <h3>দোয়া</h3>
+        <p>দৈনন্দিন প্রয়োজনীয় দোয়া</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🕌</div>
+        <h3>নামাজ</h3>
+        <p>নামাজের সময় ও গুরুত্ব</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📿</div>
+        <h3>তাসবিহ</h3>
+        <p>ডিজিটাল তাসবিহ কাউন্টার</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QURAN -->
+  <section class="container" id="quran">
+
+    <div class="section-title">
+      <h2>📖 আজকের কুরআনের আয়াত</h2>
+      <p>আল্লাহর বাণী হৃদয়কে প্রশান্ত করে</p>
+    </div>
+
+    <div class="ayah-box">
+
+      <div class="ayah-arabic">
+        أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ
+      </div>
+
+      <div class="ayah-meaning">
+        “জেনে রাখো, আল্লাহর স্মরণেই অন্তরসমূহ প্রশান্ত হয়।”
+      </div>
+
+      <div class="ayah-source">
+        — সূরা আর-রাদ, ১৩:২৮
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRAYER -->
+  <section class="prayer-section" id="prayer">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>🕌 নামাজের সময়</h2>
+        <p>আজকের নামাজের সময়সূচি</p>
+      </div>
+
+      <div class="prayer-grid">
+
+        <div class="prayer">
+          <span>🌅</span>
+          <strong>ফজর</strong>
+          <time>০৪:৪৫ AM</time>
+        </div>
+
+        <div class="prayer">
+          <span>☀️</span>
+          <strong>যোহর</strong>
+          <time>১২:০০ PM</time>
+        </div>
+
+        <div class="prayer">
+          <span>🌤️</span>
+          <strong>আসর</strong>
+          <time>০৩:২৫ PM</time>
+        </div>
+
+        <div class="prayer">
+          <span>🌇</span>
+          <strong>মাগরিব</strong>
+          <time>০৫:৫০ PM</time>
+        </div>
+
+        <div class="prayer">
+          <span>🌙</span>
+          <strong>এশা</strong>
+          <time>০৭:২০ PM</time>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DUA -->
+  <section class="container" id="dua">
+
+    <div class="section-title">
+      <h2>🤲 প্রয়োজনীয় দোয়া</h2>
+      <p>দৈনন্দিন জীবনের কিছু গুরুত্বপূর্ণ দোয়া</p>
+    </div>
+
+    <div class="duas">
+
+      <div class="dua">
+
+        <h3>ঘুমানোর দোয়া</h3>
+
+        <div class="dua-arabic">
+          بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا
+        </div>
+
+        <div class="dua-meaning">
+          অর্থ: হে আল্লাহ! তোমার নামেই মৃত্যুবরণ করি এবং তোমার নামেই জীবিত হই।
+        </div>
+
+      </div>
+
+
+      <div class="dua">
+
+        <h3>ঘুম থেকে ওঠার দোয়া</h3>
+
+        <div class="dua-arabic">
+          الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا
+        </div>
+
+        <div class="dua-meaning">
+          অর্থ: সমস্ত প্রশংসা আল্লাহর জন্য, যিনি আমাদের মৃত্যুর পর জীবিত করেছেন।
+        </div>
+
+      </div>
+
+
+      <div class="dua">
+
+        <h3>খাওয়ার আগের দোয়া</h3>
+
+        <div class="dua-arabic">
+          بِسْمِ اللَّهِ
+        </div>
+
+        <div class="dua-meaning">
+          অর্থ: আল্লাহর নামে শুরু করছি।
+        </div>
+
+      </div>
+
+
+      <div class="dua">
+
+        <h3>জ্ঞান বৃদ্ধির দোয়া</h3>
+
+        <div class="dua-arabic">
+          رَبِّ زِدْنِي عِلْمًا
+        </div>
+
+        <div class="dua-meaning">
+          অর্থ: হে আমার রব! আমার জ্ঞান বৃদ্ধি করে দিন।
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TASBIH -->
+  <section class="container" id="tasbih">
+
+    <div class="section-title">
+      <h2>📿 ডিজিটাল তাসবিহ</h2>
+      <p>আল্লাহর যিকির করুন</p>
+    </div>
+
+    <div class="tasbih-box">
+
+      <h3>سُبْحَانَ اللهِ</h3>
+
+      <div id="counter">0</div>
+
+      <button class="tasbih-btn" onclick="countTasbih()">
+        জিকির
+      </button>
+
+      <button class="reset-btn" onclick="resetTasbih()">
+        ↻ আবার শুরু
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- SEARCH -->
+  <section class="container">
+
+    <div class="section-title">
+      <h2>🔍 ইসলামিক সার্চ</h2>
+      <p>ওয়েবসাইটে বিষয় খুঁজে দেখুন</p>
+    </div>
+
+    <div class="search-box">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="যেমন: নামাজ, রোজা, দোয়া..."
+      >
+
+      <button onclick="searchSite()">খুঁজুন</button>
+
+    </div>
+
+    <div id="searchResult" style="text-align:center;"></div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <h2>☪ ইসলামের আলো</h2>
+
+    <p>
+      কুরআন ও সুন্নাহর আলো ছড়িয়ে দেওয়ার একটি ছোট্ট প্রচেষ্টা।
+    </p>
+
+    <div class="footer-links">
+      <a href="#home">হোম</a>
+      <a href="#quran">কুরআন</a>
+      <a href="#dua">দোয়া</a>
+      <a href="#tasbih">তাসবিহ</a>
+    </div>
+
+    <p>
+      © 2026 ইসলামের আলো — সকল অধিকার সংরক্ষিত
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    /* DARK MODE */
+
+    function toggleDark() {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("darkMode", "on");
+      } else {
+        localStorage.setItem("darkMode", "off");
+      }
+    }
+
+    if (localStorage.getItem("darkMode") === "on") {
+      document.body.classList.add("dark");
+    }
+
+
+    /* TASBIH */
+
+    let count = Number(localStorage.getItem("tasbihCount")) || 0;
+
+    document.getElementById("counter").innerText = count;
+
+    function countTasbih() {
+
+      count++;
+
+      document.getElementById("counter").innerText = count;
+
+      localStorage.setItem("tasbihCount", count);
+
+      if (navigator.vibrate) {
+        navigator.vibrate(30);
+      }
+    }
+
+    function resetTasbih() {
+
+      count = 0;
+
+      document.getElementById("counter").innerText = count;
+
+      localStorage.setItem("tasbihCount", count);
+    }
+
+
+    /* SEARCH */
+
+    function searchSite() {
+
+      const input =
+        document.getElementById("searchInput").value
+        .trim()
+        .toLowerCase();
+
+      const result =
+        document.getElementById("searchResult");
+
+      if (!input) {
+        result.innerHTML =
+          "<p style='color:#d55;'>অনুগ্রহ করে কিছু লিখে সার্চ করুন।</p>";
+        return;
+      }
+
+      const topics = {
+        "কুরআন": "#quran",
+        "quran": "#quran",
+        "দোয়া": "#dua",
+        "dua": "#dua",
+        "তাসবিহ": "#tasbih",
+        "tasbih": "#tasbih",
+        "নামাজ": "#prayer",
+        "নামায": "#prayer",
+        "prayer": "#prayer"
+      };
+
+      let found = null;
+
+      for (let key in topics) {
+
+        if (input.includes(key)) {
+          found = topics[key];
+          break;
+        }
+      }
+
+      if (found) {
+
+        result.innerHTML =
+          "<p>ফলাফল পাওয়া গেছে। নিচের বিভাগে নিয়ে যাওয়া হচ্ছে...</p>";
+
+        setTimeout(() => {
+
+          document.querySelector(found)
+            .scrollIntoView({
+              behavior: "smooth"
+            });
+
+        }, 500);
+
+      } else {
+
+        result.innerHTML =
+          "<p style='color:#d55;'>এই বিষয়ের ফলাফল এখনো যোগ করা হয়নি।</p>";
+      }
+
+    }
+
+
+    /* ENTER KEY SEARCH */
+
+    document.getElementById("searchInput")
+      .addEventListener("keypress", function(event) {
+
+        if (event.key === "Enter") {
+          searchSite();
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
